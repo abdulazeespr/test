@@ -18,9 +18,11 @@ const NavBar = () => {
         <h2>Fictional Store</h2>
       </div>
       <div className="flex gap-3 items-center justify-center">
-        <button className="flex justify-center items-center bg-black text-orange-200 px-3 py-2 rounded-md">
-          Add Book
-        </button>
+        <Link href={"/create"}>
+          <button className="flex justify-center items-center bg-black text-orange-200 px-3 py-2 rounded-md">
+            Add Book
+          </button>
+        </Link>
         <div>
           <SignedOut>
             <SignInButton />

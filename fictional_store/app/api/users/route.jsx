@@ -11,13 +11,13 @@ export async function POST(req) {
     });
 
     if (book) {
-      NextResponse.json({
+      return NextResponse.json({
         success: true,
         message: "user is added",
       });
     }
   } catch (e) {
-    NextResponse.json({
+    return NextResponse.json({
       success: false,
       message: "Server Error",
     });
