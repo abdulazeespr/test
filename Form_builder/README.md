@@ -1,4 +1,8 @@
+# FORM Builder
 
+## Apporach 
+- Start create with a simple Form Builder
+- create a form where select inputbox and checkbox
 
 # React + Vite
 
