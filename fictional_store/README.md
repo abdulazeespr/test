@@ -1,3 +1,14 @@
+## fictional online bookstore
+
+### Freature
+   - add User Management Using Clerk
+   - add Cloudinary for file Upload
+### Tech Stack
+
+ - Nextjs used for Frontend and Backend
+ - Use MonogoDb for Database
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
