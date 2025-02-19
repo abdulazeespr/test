@@ -18,7 +18,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full h-screen bg-amber-100">
+    <div className="w-full min-h-screen h-full bg-amber-100">
       <NavBar />
       <div className="flex flex-wrap m-10 gap-3 px-2 py-2">
         {books?.map((item, index) => (
@@ -28,6 +28,7 @@ export default function Home() {
               author={item.author}
               price={item.price}
               description={item.description}
+              image={item.image}
             />
           </div>
         ))}

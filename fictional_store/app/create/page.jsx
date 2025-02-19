@@ -11,6 +11,7 @@ import React, { useContext, useState } from "react";
 import { GiEvilBook } from "react-icons/gi";
 import { UserDetailContex } from "../_context/UserDetailContext";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 const Addbook = () => {
   const [title, setTitle] = useState("");
@@ -19,6 +20,7 @@ const Addbook = () => {
   const [description, setDescription] = useState("");
   const { userDetail, setUserDetail } = useContext(UserDetailContex);
   const { user } = useUser();
+  const [image, setImage] = useState("");
   //   title: { type: String, required: true },
   //   author: { type: String, required: true },
   //   price: { type: Number, required: true },
@@ -32,9 +34,21 @@ const Addbook = () => {
       price: price,
       description: description,
       userEmail: user?.primaryEmailAddress?.emailAddress,
+      imageUrl: image,
     });
 
     redirect("/");
+  };
+
+  const handleFile = (e) => {
+    const file = e.target.files[0];
+
+    let reader = new FileReader();
+    reader.onloadend = function () {
+      setImage(reader.result);
+    };
+
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -92,6 +106,16 @@ const Addbook = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
+          <div className="flex justify-center items-center">
+            <label>Cover Photo: </label>
+            <input type="file" onChange={(e) => handleFile(e)} />
+          </div>
+          {image && (
+            <div className="flex flex-col justify-center items-center">
+              <label> Photo: </label>
+              <Image src={image} width={70} height={60} alt="uploading_image" />
+            </div>
+          )}
           <div className="flex justify-center items-center ">
             <button
               className="bg-black text-amber-200 px-4 py-2 rounded-sm w-1/3"
